@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function findSecondMax(arr) {
+
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr.length; j++) {
+                let temp = arr[j];
+                if (temp < arr[j + 1]) {
+                    arr[j] = arr [j + 1];
+                    arr [j + 1] = temp;
+                }
+            }
+        }
+        let new_arr = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (new_arr.indexOf(arr[i]) === -1) {
+                new_arr.push(arr[i]);
+            }
+        }
+        return new_arr[1];
+    }
+    let arr = [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 7, 8]
+    console.log(findSecondMax(arr));
+
+</script>
+</body>
+</html>
